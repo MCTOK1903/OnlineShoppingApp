@@ -11,6 +11,7 @@
         <!--View Controller-->
         <scene sceneID="7G1-aA-hyF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDg-57-oF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="0zU-0x-YYs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ZJ-gq-9th">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -20,7 +21,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="rHF-88-sxx"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BDg-57-oF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="378"/>
         </scene>
@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MaJ-i3-leM">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MaJ-i3-leM">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -54,11 +54,11 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TL-OI-1BA">
-                                            <rect key="frame" x="0.0" y="95" width="143" height="42"/>
+                                            <rect key="frame" x="0.0" y="103" width="143" height="34"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="42" id="oqy-Xq-Xpz"/>
+                                                <constraint firstAttribute="height" constant="34" id="oqy-Xq-Xpz"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -72,6 +72,10 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="143" height="137"/>
+                                <connections>
+                                    <outlet property="imageView" destination="lbx-b9-QE5" id="G9b-Kj-vkr"/>
+                                    <outlet property="nameLabel" destination="7TL-OI-1BA" id="dDM-Hj-Fk3"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -95,8 +99,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0zU-0x-YYs" kind="relationship" relationship="viewControllers" id="RwY-ax-We4"/>
                         <segue destination="1cG-iM-dYB" kind="relationship" relationship="viewControllers" id="AAw-Pd-TVc"/>
+                        <segue destination="0zU-0x-YYs" kind="relationship" relationship="viewControllers" id="GiF-fz-EfS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6w-Px-dfs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
