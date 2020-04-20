@@ -11,7 +11,6 @@
         <!--View Controller-->
         <scene sceneID="7G1-aA-hyF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BDg-57-oF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="0zU-0x-YYs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ZJ-gq-9th">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -21,6 +20,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="rHF-88-sxx"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDg-57-oF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="378"/>
         </scene>
@@ -161,12 +161,96 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="E8n-ej-Dr2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZZ7-VN-PA6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZZ7-VN-PA6">
+                            <connections>
+                                <segue destination="I0L-oK-SKi" kind="show" id="ZjE-1R-rEi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jG-Kz-XOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2532" y="-285"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="Egv-PY-zze">
+            <objects>
+                <viewController id="I0L-oK-SKi" customClass="AddItemViewController" customModule="OnlineShopApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zz5-g6-6Rq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-Xd-Y6s">
+                                <rect key="frame" x="20" y="130" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-sz-yVm">
+                                <rect key="frame" x="20" y="190" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="h46-fY-J4P">
+                                <rect key="frame" x="20" y="249" width="374" height="180"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkl-6A-z0x">
+                                <rect key="frame" x="138" y="465" width="138" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="ypc-Cp-mVs"/>
+                                </constraints>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraClicked:" destination="I0L-oK-SKi" eventType="touchUpInside" id="GRg-ef-Zba"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="3Sp-sz-yVm" firstAttribute="leading" secondItem="h46-fY-J4P" secondAttribute="leading" id="5hO-SB-oek"/>
+                            <constraint firstItem="YIn-Xd-Y6s" firstAttribute="trailing" secondItem="3Sp-sz-yVm" secondAttribute="trailing" id="90T-Sq-JOe"/>
+                            <constraint firstItem="YIn-Xd-Y6s" firstAttribute="top" secondItem="cS6-Ge-3r5" secondAttribute="top" constant="42" id="9WR-mE-DoB"/>
+                            <constraint firstItem="h46-fY-J4P" firstAttribute="top" secondItem="3Sp-sz-yVm" secondAttribute="bottom" constant="25" id="DIE-dg-ocf"/>
+                            <constraint firstItem="h46-fY-J4P" firstAttribute="centerX" secondItem="Rkl-6A-z0x" secondAttribute="centerX" id="O2K-6J-guc"/>
+                            <constraint firstItem="YIn-Xd-Y6s" firstAttribute="leading" secondItem="Zz5-g6-6Rq" secondAttribute="leadingMargin" id="Tw4-hC-K0o"/>
+                            <constraint firstItem="YIn-Xd-Y6s" firstAttribute="trailing" secondItem="Zz5-g6-6Rq" secondAttribute="trailingMargin" id="baq-YK-Jhr"/>
+                            <constraint firstItem="YIn-Xd-Y6s" firstAttribute="leading" secondItem="3Sp-sz-yVm" secondAttribute="leading" id="d2m-Kq-cq1"/>
+                            <constraint firstItem="3Sp-sz-yVm" firstAttribute="top" secondItem="YIn-Xd-Y6s" secondAttribute="bottom" constant="26" id="el1-7f-XiB"/>
+                            <constraint firstItem="3Sp-sz-yVm" firstAttribute="trailing" secondItem="h46-fY-J4P" secondAttribute="trailing" id="sur-Mb-zhz"/>
+                            <constraint firstItem="cS6-Ge-3r5" firstAttribute="bottom" secondItem="Rkl-6A-z0x" secondAttribute="bottom" constant="294" id="uxN-jx-kRj"/>
+                            <constraint firstItem="Rkl-6A-z0x" firstAttribute="leading" secondItem="cS6-Ge-3r5" secondAttribute="leading" constant="138" id="vNm-El-dc7"/>
+                            <constraint firstItem="Rkl-6A-z0x" firstAttribute="top" secondItem="h46-fY-J4P" secondAttribute="bottom" constant="36" id="xFl-SB-4lH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cS6-Ge-3r5"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="FrF-Ta-mYZ" appends="YES" id="0fQ-ed-KuE"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Item" id="Vtx-dQ-XYl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tvM-14-xft">
+                            <connections>
+                                <action selector="saveClicked:" destination="I0L-oK-SKi" id="gOy-bG-VjI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="h46-fY-J4P" id="yi3-ia-z8s"/>
+                        <outlet property="priceTF" destination="3Sp-sz-yVm" id="48x-uL-eX0"/>
+                        <outlet property="titleTF" destination="YIn-Xd-Y6s" id="fiH-hN-AVx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmF-JP-KO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FrF-Ta-mYZ">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="I0L-oK-SKi" id="OMq-8p-djB"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3440.579710144928" y="-285.26785714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0jC-T0-fQU">
