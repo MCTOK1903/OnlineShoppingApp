@@ -46,6 +46,32 @@ func categorytoDictionary(_ category:Category) -> NSDictionary{
 }
 
 
+func donwloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Category])-> Void){
+    
+    var categoryArray : [Category] = []
+    
+    FirebaseReference(.Category).getDocuments { (snapshot, error) in
+        
+        guard let snapshot = snapshot else{
+            completion(categoryArray)
+            return
+        }
+        if !snapshot.isEmpty && snapshot.count > 0 {
+            
+            for categoryDict in snapshot.documents {
+                print("hi")
+                categoryArray.append(Category(_dictionary: categoryDict.data() as NSDictionary))
+            }
+            
+        }
+        completion(categoryArray)
+    }
+    
+    
+}
+
+ 
+
 //use only one time
 //func createCategorySet() {
 //
