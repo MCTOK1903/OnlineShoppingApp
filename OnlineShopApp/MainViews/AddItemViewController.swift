@@ -29,15 +29,19 @@ class AddItemViewController: UIViewController {
     var itemImages : [UIImage?] = []
     
     
-    
+    //MARK:View lifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(category.name)
-
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2 - 30, y: self.view.frame.height / 2 - 30, width: 60, height: 60), type: .ballClipRotateMultiple, color: .gray, padding: nil)
+    }
+    
     
     @IBAction func cameraClicked(_ sender: Any) {
         itemImages = []
@@ -85,9 +89,10 @@ class AddItemViewController: UIViewController {
     }
     
     
-    //MARK: Save Item
+    //MARK: SaveToFireBase
     private func savetoFirebase() {
         
+        showLoadingIndicator()
         let item = Item()
         item.id = UUID().uuidString
         item.name = titleTF.text!
@@ -102,12 +107,30 @@ class AddItemViewController: UIViewController {
                 item.imageLinks = imageLinkArray
                 
                 saveItemToFirestore(item)
+                self.hideLoadingIndicator()
                 self.popTheView()
             }
             
         }else {
             saveItemToFirestore(item)
             popTheView()
+        }
+    }
+    
+    
+    //MARK: Activity İndicator
+    
+    private func showLoadingIndicator(){
+        if activityIndicator != nil {
+            self.view.addSubview(activityIndicator!)
+            activityIndicator!.startAnimating()
+        }
+    }
+    
+    private func hideLoadingIndicator(){
+        if activityIndicator != nil {
+            activityIndicator!.removeFromSuperview()
+            activityIndicator!.stopAnimating()
         }
     }
     
