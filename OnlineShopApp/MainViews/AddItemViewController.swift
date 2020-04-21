@@ -40,7 +40,7 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func cameraClicked(_ sender: Any) {
-        itemImages.removeAll(keepingCapacity: false)
+        itemImages = []
         showImageGallery()
     }
     
@@ -96,6 +96,14 @@ class AddItemViewController: UIViewController {
         item.description = descriptionTextView.text
         
         if itemImages.count > 0 && !itemImages.isEmpty {
+            
+            uploadImages(images: itemImages, itemId: item.id) { (imageLinkArray) in
+                
+                item.imageLinks = imageLinkArray
+                
+                saveItemToFirestore(item)
+                self.popTheView()
+            }
             
         }else {
             saveItemToFirestore(item)

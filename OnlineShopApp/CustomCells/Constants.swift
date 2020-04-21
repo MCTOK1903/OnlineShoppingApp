@@ -9,6 +9,9 @@
 import Foundation
 
 
+//IDS and Keys
+public let kFILEREFERENCE = "gs://onlineshopapp-da94b.appspot.com"
+
 //FireBase Headers
 
 public let kUSER_PATH = "User"

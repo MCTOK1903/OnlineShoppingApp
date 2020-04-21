@@ -24,6 +24,7 @@ class Item {
     }
     
     init(_ dictionary: NSDictionary) {
+        
         id = dictionary[kOBJECTID] as? String
         categoryId = dictionary[kCATEGORYID] as? String
         name = dictionary[kNAME] as? String
@@ -31,9 +32,6 @@ class Item {
         price = dictionary[kPRICE] as? Double
         imageLinks = dictionary[kIMAGELINKS] as? [String]
     }
-    
-    
-    
     
 }
 

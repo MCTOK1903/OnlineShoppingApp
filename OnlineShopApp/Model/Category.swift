@@ -59,7 +59,6 @@ func donwloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Ca
         if !snapshot.isEmpty && snapshot.count > 0 {
             
             for categoryDict in snapshot.documents {
-                print("hi")
                 categoryArray.append(Category(_dictionary: categoryDict.data() as NSDictionary))
             }
             

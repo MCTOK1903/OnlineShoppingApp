@@ -34,8 +34,8 @@ func uploadImages(images: [UIImage?], itemId: String, completion: @escaping (_ i
                     completion(imageLinkArray)
                 }
             }
-            nameSuffix += 1
         }
+        nameSuffix += 1
     }
     
 }
@@ -44,22 +44,23 @@ func uploadImages(images: [UIImage?], itemId: String, completion: @escaping (_ i
 func saveImageInFirebase(imageData:Data, fileName: String, completion: @escaping (_ imageLink: String?)->Void){
     
     let storageRef = storage.reference().child(fileName)
-    storageRef.putData(imageData, metadata: nil) { (metadata, err) in
-        if let err = err {
-            print(err)
+    storageRef.putData(imageData, metadata: nil, completion: { (metadata, err) in
+        
+        if err != nil {
+            print("err")
             completion(nil)
             return
         }
+        
         storageRef.downloadURL { (url, err) in
-            guard let url = url else {
+            guard let url  = url else {
                 completion(nil)
                 return
             }
-            
             completion(url.absoluteString)
         }
-         
-    }
+        
+    })
     
 }
 
