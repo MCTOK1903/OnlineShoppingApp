@@ -64,4 +64,44 @@ func saveImageInFirebase(imageData:Data, fileName: String, completion: @escaping
     
 }
 
+//MARK: Download images from firestore
+
+func downloadImages(imageURL: [String], completion: @escaping (_ images: [UIImage?])-> Void){
+    
+    var imageArray: [UIImage] = []
+    
+    var downloadCounter = 0
+    
+    for link in imageURL {
+        
+        let url = NSURL(string: link) // string convert to url
+        
+        let downloadQueue = DispatchQueue(label: "imageDownloadQ")
+        
+        downloadQueue.async {
+            
+            downloadCounter += 1
+            
+            let data = NSData(contentsOf: url! as URL) // url convert to data
+            
+            if data != nil {
+                
+                imageArray.append(UIImage(data: data! as Data)!)
+                
+                if imageArray.count == downloadCounter {
+                    
+                    DispatchQueue.main.async{
+                        completion(imageArray)
+                        return
+                    }
+                }
+            } else{
+                print("!")
+                completion(imageArray)
+            }
+        }
+    }
+}
+
+
 

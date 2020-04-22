@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="iPP-8p-QMR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="iPP-8p-QMR" customClass="ItemTableViewCell" customModule="OnlineShopApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iPP-8p-QMR" id="QMi-HY-MQm">
@@ -153,6 +153,12 @@
                                         <constraint firstItem="Vih-83-W9j" firstAttribute="top" secondItem="QMi-HY-MQm" secondAttribute="topMargin" id="rF6-pr-P9K"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ImageView" destination="U4B-ve-vbg" id="wqR-qp-Vwh"/>
+                                    <outlet property="descriptionLabel" destination="1R2-BX-7ZF" id="79x-eg-VTI"/>
+                                    <outlet property="nameLabel" destination="Vih-83-W9j" id="fAm-oH-MJj"/>
+                                    <outlet property="priceLabel" destination="tUp-Pr-mAQ" id="Rug-cD-tOL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
