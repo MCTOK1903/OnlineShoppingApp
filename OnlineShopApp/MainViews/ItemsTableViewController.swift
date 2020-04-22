@@ -34,6 +34,16 @@ class ItemsTableViewController: UITableViewController {
             loadItems()
         }
     }
+    
+    //MARK: TableView Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        showItemView(itemArray[indexPath.row])
+         
+        
+    }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +56,8 @@ class ItemsTableViewController: UITableViewController {
         cell.generateCell(itemArray[indexPath.row])
         return cell
     }
+    
+    //MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemToAddItemSegue" {
@@ -53,6 +65,16 @@ class ItemsTableViewController: UITableViewController {
             vc.category = category!
         }
     }
+    
+    private func showItemView(_ item: Item){
+         
+        let itemVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "itemView") as! ItemViewController
+        itemVC.item = item
+        
+        self.navigationController?.pushViewController(itemVC, animated: true)
+    }
+    
+    
     
     //MARK: download Items from Firabase
     private func loadItems(){

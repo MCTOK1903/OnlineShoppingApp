@@ -14,6 +14,8 @@
 		00440706244E295500B20A25 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00440705244E295500B20A25 /* Item.swift */; };
 		00440708244E47A300B20A25 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00440707244E47A300B20A25 /* AddItemViewController.swift */; };
 		0044070A244E6D7D00B20A25 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00440709244E6D7D00B20A25 /* Downloader.swift */; };
+		004686782450AFF7004407C1 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004686772450AFF7004407C1 /* ItemViewController.swift */; };
+		0046867A2450B81C004407C1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004686792450B81C004407C1 /* ImageCollectionViewCell.swift */; };
 		0093A914244D05DB00861B34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0093A913244D05DB00861B34 /* Constants.swift */; };
 		00BF825A244CFCE60022A71F /* FirebaseCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF8259244CFCE60022A71F /* FirebaseCollectionReference.swift */; };
 		00BF825F244D01E40022A71F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF825E244D01E40022A71F /* Category.swift */; };
@@ -35,6 +37,8 @@
 		00440705244E295500B20A25 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		00440707244E47A300B20A25 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		00440709244E6D7D00B20A25 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		004686772450AFF7004407C1 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		004686792450B81C004407C1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0093A913244D05DB00861B34 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00BF8259244CFCE60022A71F /* FirebaseCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollectionReference.swift; sourceTree = "<group>"; };
 		00BF825E244D01E40022A71F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				000C6A13244CED250006197D /* CategoryCollectionViewController.swift */,
 				00440703244E219900B20A25 /* ItemsTableViewController.swift */,
 				00440707244E47A300B20A25 /* AddItemViewController.swift */,
+				004686772450AFF7004407C1 /* ItemViewController.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 			children = (
 				000C6A15244CEDDA0006197D /* CategoryCollectionViewCell.swift */,
 				00F80CDB244F910F0036413F /* ItemTableViewCell.swift */,
+				004686792450B81C004407C1 /* ImageCollectionViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -278,7 +284,9 @@
 				00C02D5A244FC422009D4E45 /* HelperFunc.swift in Sources */,
 				00D75384244CE26E005CA844 /* AppDelegate.swift in Sources */,
 				00F80CDC244F910F0036413F /* ItemTableViewCell.swift in Sources */,
+				0046867A2450B81C004407C1 /* ImageCollectionViewCell.swift in Sources */,
 				00440704244E219900B20A25 /* ItemsTableViewController.swift in Sources */,
+				004686782450AFF7004407C1 /* ItemViewController.swift in Sources */,
 				00BF825A244CFCE60022A71F /* FirebaseCollectionReference.swift in Sources */,
 				00440708244E47A300B20A25 /* AddItemViewController.swift in Sources */,
 				00D75386244CE26E005CA844 /* SceneDelegate.swift in Sources */,
