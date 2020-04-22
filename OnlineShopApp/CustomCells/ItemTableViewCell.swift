@@ -29,7 +29,7 @@ class ItemTableViewCell: UITableViewCell {
     func generateCell (_ item:Item){
         nameLabel.text = item.name
         descriptionLabel.text = item.description
-        priceLabel.text = String(item.price)
+        priceLabel.text = convertToCurrency(item.price)
         
         if item.imageLinks != nil && item.imageLinks.count > 0 {
             downloadImages(imageURL: [item.imageLinks.first!]) { (images) in
