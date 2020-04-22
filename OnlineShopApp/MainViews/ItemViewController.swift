@@ -35,6 +35,10 @@ class ItemViewController: UIViewController {
 
         setupUI()
         
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "back"), landscapeImagePhone: UIImage(named: "back"), style: .plain, target: self, action: #selector(backAction))]
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "basket"), landscapeImagePhone: UIImage(named: "back"), style: .plain, target: self, action: #selector(addToBasket))]
+        
     }
     
     //MARK: Download Pictures
@@ -69,6 +73,17 @@ class ItemViewController: UIViewController {
             downloadPictures()
         }
     
+    }
+    
+    
+    //MARK: IBAction
+    
+    @objc func backAction(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func addToBasket(){
+        
     }
 }
 
