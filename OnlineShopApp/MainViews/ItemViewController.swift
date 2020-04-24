@@ -84,6 +84,8 @@ class ItemViewController: UIViewController {
     
     @objc func addToBasket(){
         
+        //TODO:  check user
+        
         downloadBasketFromFirestore("1234") { (basket) in
             
             if basket == nil {
@@ -116,8 +118,30 @@ class ItemViewController: UIViewController {
     
     private func updateBasket(basket: Basket, withValues: [String:Any]){
         
-        
-        
+        updateBasketInFirestore(basket, withValues: withValues) { (err) in
+            
+         print("asadad")
+            
+            if err != nil {
+                
+                self.hud.textLabel.text = "Error: \(err?.localizedDescription)"
+                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                self.hud.show(in: self.view, animated: true)
+                self.hud.dismiss(afterDelay: 2.0, animated: true)
+                
+                print("selam",err?.localizedDescription)
+            }else {
+                
+                self.hud.textLabel.text = "Added to basket!"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view, animated: true)
+                self.hud.dismiss(afterDelay: 2.0, animated: true)
+                
+                print("hi")
+                
+            }
+            
+        }
     }
     
     
