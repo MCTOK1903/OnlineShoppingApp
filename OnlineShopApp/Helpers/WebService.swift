@@ -11,6 +11,9 @@ import FirebaseStorage
 
 let storage = Storage.storage()
 
+
+//MARK: - upload Images
+
 func uploadImages(images: [UIImage?], itemId: String, completion: @escaping (_ imageLinks: [String])-> Void){
     
     var uploadImagesCount = 0
@@ -105,6 +108,15 @@ func downloadImages(imageURL: [String], completion: @escaping (_ images: [UIImag
     }
 }
 
+//MARK: -Save category func
+
+func saveCategoryToFirebase(_ category:Category){
+    let id = UUID().uuidString
+    category.id = id
+    
+    FirebaseReference(.Category).document(id).setData(categorytoDictionary(category) as! [String:Any])
+}
+
 
 //MARK: - download categories from Firebase
 
@@ -131,8 +143,13 @@ func donwloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Ca
     
 }
 
+//MARK: - save to Firestore Basket
+func saveBasketToFirestore(_ basket:Basket){
+    FirebaseReference(.Basket).document(basket.id).setData(basketDictionaryFrom(basket) as! [String:Any])
+}
 
-//MARK: - donwload items
+
+//MARK: - donwload Basket
 
 func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ basket: Basket?)-> Void){
     
@@ -145,7 +162,7 @@ func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ bas
         
         if !snapshot.isEmpty && snapshot.documents.count > 0 {
             
-            // - we used document.fitst because every user has only one basket !!
+            // - we used document.first because every user has only one basket !!
             let basket = Basket(_dictionary: snapshot.documents.first!.data() as NSDictionary)
             completion(basket)
         }else{
@@ -156,5 +173,18 @@ func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ bas
     
 }
 
+
+//MARK: - Update Basket
+
+func updateBasketInFirestore(_ basket: Basket, withValues: [String: Any], completion: @escaping (_ error: Error?)->Void){
+
+    FirebaseReference(.Basket).document(basket.id).updateData(withValues) { (err) in
+        
+        if err != nil {
+            completion(err)
+        }
+        
+    }
+}
 
 

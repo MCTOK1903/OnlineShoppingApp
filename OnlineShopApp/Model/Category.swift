@@ -31,14 +31,7 @@ class Category{
     
 }
 
-//Save category func
 
-func saveCategoryToFirebase(_ category:Category){
-    let id = UUID().uuidString
-    category.id = id
-    
-    FirebaseReference(.Category).document(id).setData(categorytoDictionary(category) as! [String:Any])
-}
 
 //categorytoDictionary,helpers
 func categorytoDictionary(_ category:Category) -> NSDictionary{

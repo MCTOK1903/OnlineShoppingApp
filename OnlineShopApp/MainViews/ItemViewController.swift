@@ -41,7 +41,7 @@ class ItemViewController: UIViewController {
         
     }
     
-    //MARK: Download Pictures
+    //MARK: - Download Pictures
     
     private func downloadPictures() {
         
@@ -60,7 +60,7 @@ class ItemViewController: UIViewController {
     }
     
     
-    //MARK: setup UI
+    //MARK: - setup UI
     
     private func setupUI(){
         
@@ -84,9 +84,47 @@ class ItemViewController: UIViewController {
     
     @objc func addToBasket(){
         
+        downloadBasketFromFirestore("1234") { (basket) in
+            
+            if basket == nil {
+                self.createNewBasket()
+            }else{
+                basket!.itemIds.append(self.item.id)
+                self.updateBasket(basket: basket!, withValues: [kITEMIDS: basket?.itemIds])
+            }
+        }
+        
+        
     }
+    
+    //MARK: - Add to basket
+    
+    private func createNewBasket(){
+        
+        let newBasket = Basket()
+        newBasket.id = UUID().uuidString
+        newBasket.ownerId = "1234"
+        newBasket.itemIds = [self.item.id]
+        saveBasketToFirestore(newBasket)
+        
+        self.hud.textLabel.text = "Added to basket!"
+        self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        self.hud.show(in: self.view, animated: true)
+        self.hud.dismiss(afterDelay: 2.0, animated: true)
+        
+    }
+    
+    private func updateBasket(basket: Basket, withValues: [String:Any]){
+        
+        
+        
+    }
+    
+    
 }
 
+
+//MARK: - extension
  
 extension ItemViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     

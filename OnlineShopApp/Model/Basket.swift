@@ -27,10 +27,7 @@ class Basket {
 
 
 
-//MARK: - save to Firestore
-func saveBasketToFirestore(_ basket:Basket){
-    FirebaseReference(.Basket).document(basket.id).setData(basketDictionaryFrom(basket) as! [String:Any])
-}
+
 
 //MARK: - Helper func
 func basketDictionaryFrom(_ basket: Basket) -> NSDictionary{
