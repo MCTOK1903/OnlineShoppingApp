@@ -54,24 +54,4 @@ func itemDictionaryFrom(_ item: Item) -> NSDictionary {
 }
 
 
-//MARK: Download Item func
-func downloadItemsFromFirebase(withCategoryId: String, completion: @escaping (_ itemArray: [Item])-> Void){
-    
-    var itemArray: [Item] = []
-    
-    FirebaseReference(.Items).whereField(kCATEGORYID, isEqualTo: withCategoryId).getDocuments { (snapshot, error) in
-        if error != nil {
-            //makeAlert
-            completion(itemArray)
-            return
-        }
-        
-        if snapshot?.count != nil && snapshot?.isEmpty == false {
-            for document in  snapshot!.documents {
-                itemArray.append(Item(document.data() as NSDictionary))
-            }
-        }
-        
-        completion(itemArray)
-    }
-}
+

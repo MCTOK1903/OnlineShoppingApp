@@ -53,7 +53,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     //Download categories
     private func loadCategories(){
         
-        donwloadCategoriesFromFirebase { (allCategories) in
+        downloadCategoriesFromFirebase { (allCategories) in
             self.categoryArray = allCategories
             self.collectionView.reloadData()
         }

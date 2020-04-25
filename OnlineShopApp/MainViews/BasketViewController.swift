@@ -53,12 +53,20 @@ class BasketViewController: UIViewController {
         
         downloadBasketFromFirestore("1234") { (basket) in
             self.basket = basket
-            
+            self.getBasketItem()
         }
     }
     
-    
-
+    private func getBasketItem(){
+        
+        if basket != nil {
+            
+            donwloadItemInBasket(basket!.itemIds) { (allItems) in
+                self.allItems = allItems
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 //MARK: - extension tableView

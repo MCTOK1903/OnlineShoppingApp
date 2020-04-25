@@ -12,6 +12,9 @@ import FirebaseStorage
 let storage = Storage.storage()
 
 
+
+
+
 //MARK: - upload Images
 
 func uploadImages(images: [UIImage?], itemId: String, completion: @escaping (_ imageLinks: [String])-> Void){
@@ -143,6 +146,30 @@ func downloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Ca
     
 }
 
+
+//MARK: - Download Item func
+func downloadItemsFromFirebase(withCategoryId: String, completion: @escaping (_ itemArray: [Item])-> Void){
+    
+    var itemArray: [Item] = []
+    
+    FirebaseReference(.Items).whereField(kCATEGORYID, isEqualTo: withCategoryId).getDocuments { (snapshot, error) in
+        if error != nil {
+            //makeAlert
+            completion(itemArray)
+            return
+        }
+        
+        if snapshot?.count != nil && snapshot?.isEmpty == false {
+            for document in  snapshot!.documents {
+                itemArray.append(Item(document.data() as NSDictionary))
+            }
+        }
+        
+        completion(itemArray)
+    }
+}
+
+
 //MARK: - save to Firestore Basket
 func saveBasketToFirestore(_ basket:Basket){
     FirebaseReference(.Basket).document(basket.id).setData(basketDictionaryFrom(basket) as! [String:Any])
@@ -186,6 +213,40 @@ func updateBasketInFirestore(_ basket: Basket, withValues: [String: Any], comple
         
         completion(nil)
         
+    }
+}
+
+//MARK: - Download Items in Basket
+func donwloadItemInBasket(_ withIds: [String], comletion: @escaping (_ itemArray: [Item])->Void){
+    
+    var count = 0
+    var itemArray: [Item] = []
+    
+    if withIds.count > 0 {
+        
+        for itemId in withIds {
+            
+            FirebaseReference(.Items).document(itemId).getDocument { (snapshot, err) in
+                
+                guard let snapshot = snapshot else {
+                    comletion(itemArray)
+                    return
+                }
+                
+                if snapshot.exists {
+                    
+                    itemArray.append(Item(snapshot.data()! as NSDictionary))
+                    count += 1
+                }else {
+                    comletion(itemArray)
+                }
+                
+                if count == withIds.count {
+                    comletion(itemArray )
+                }
+            }
+        }
+        comletion(itemArray)
     }
 }
 
