@@ -14,7 +14,6 @@ pod 'InstantSearchClient'
 pod 'EmptyDataSet-Swift', '~> 5.0.0'
 pod 'NVActivityIndicatorView/AppExtension'
 pod 'JGProgressHUD'
-pod 'PayPal-iOS-SDK'
 
   # Pods for OnlineShopApp
 

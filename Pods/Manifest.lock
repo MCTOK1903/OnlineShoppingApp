@@ -164,7 +164,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
-  - CardIO (5.4.1)
   - EmptyDataSet-Swift (5.0.0)
   - Firebase/Auth (6.20.0):
     - Firebase/CoreOnly
@@ -284,12 +283,6 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - NVActivityIndicatorView/AppExtension (4.8.0)
-  - PayPal-iOS-SDK (2.18.1):
-    - PayPal-iOS-SDK/CardIO (= 2.18.1)
-    - PayPal-iOS-SDK/Core (= 2.18.1)
-  - PayPal-iOS-SDK/CardIO (2.18.1):
-    - CardIO (~> 5.4.1)
-  - PayPal-iOS-SDK/Core (2.18.1)
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
@@ -302,13 +295,11 @@ DEPENDENCIES:
   - InstantSearchClient
   - JGProgressHUD
   - NVActivityIndicatorView/AppExtension
-  - PayPal-iOS-SDK
 
 SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
-    - CardIO
     - EmptyDataSet-Swift
     - Firebase
     - FirebaseAnalytics
@@ -333,13 +324,11 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
-    - PayPal-iOS-SDK
     - PromisesObjC
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Firebase: fe7f74012742ab403451dd283e6909b8f1fb348a
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
@@ -364,9 +353,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
-  PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: 43d281f8f96fa9bc09122f563f2adb14bc8014cf
+PODFILE CHECKSUM: 5aff17ec65c0a47e58f6bb7a0979f9caeaea5fda
 
 COCOAPODS: 1.9.1
