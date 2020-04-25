@@ -120,7 +120,7 @@ func saveCategoryToFirebase(_ category:Category){
 
 //MARK: - download categories from Firebase
 
-func donwloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Category])-> Void){
+func downloadCategoriesFromFirebase(completion: @escaping (_ categoryArray : [Category])-> Void){
     
     var categoryArray : [Category] = []
     
@@ -149,7 +149,7 @@ func saveBasketToFirestore(_ basket:Basket){
 }
 
 
-//MARK: - donwload Basket
+//MARK: - download Basket
 
 func downloadBasketFromFirestore(_ ownerId: String, completion: @escaping (_ basket: Basket?)-> Void){
     

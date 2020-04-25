@@ -37,7 +37,7 @@ class ItemViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "back"), landscapeImagePhone: UIImage(named: "back"), style: .plain, target: self, action: #selector(backAction))]
         
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "basket"), landscapeImagePhone: UIImage(named: "back"), style: .plain, target: self, action: #selector(addToBasket))]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "addToBasket"), landscapeImagePhone: UIImage(named: "back"), style: .plain, target: self, action: #selector(addToBasket))]
         
     }
     
@@ -120,7 +120,6 @@ class ItemViewController: UIViewController {
         
         updateBasketInFirestore(basket, withValues: withValues) { (err) in
             
-         print("asadad")
             
             if err != nil {
                 
@@ -129,16 +128,13 @@ class ItemViewController: UIViewController {
                 self.hud.show(in: self.view, animated: true)
                 self.hud.dismiss(afterDelay: 2.0, animated: true)
                 
-                print("selam",err?.localizedDescription)
+                print(err?.localizedDescription )
             }else {
                 
                 self.hud.textLabel.text = "Added to basket!"
                 self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
                 self.hud.show(in: self.view, animated: true)
                 self.hud.dismiss(afterDelay: 2.0, animated: true)
-                
-                print("hi")
-                
             }
             
         }
