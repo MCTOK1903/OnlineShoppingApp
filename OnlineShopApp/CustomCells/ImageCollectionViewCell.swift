@@ -16,4 +16,5 @@ class ImageCollectionViewCell: UICollectionViewCell {
     func setupImageWith(itemImage: UIImage){
         imageView.image = itemImage 
     }
+    
 }

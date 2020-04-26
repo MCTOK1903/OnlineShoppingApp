@@ -40,6 +40,7 @@ class BasketViewController: UIViewController {
         //TODO-check user login
         
         loadBasketFromFirebase()
+        
     }
     
     //MARK: - IBActions
@@ -63,6 +64,7 @@ class BasketViewController: UIViewController {
             
             donwloadItemInBasket(basket!.itemIds) { (allItems) in
                 self.allItems = allItems
+                self.totalItemsCount.text = String(self.allItems.count)
                 self.tableView.reloadData()
             }
         }
@@ -74,11 +76,14 @@ class BasketViewController: UIViewController {
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return allItems.count > 0 ? allItems.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
+        cell.generateCell(allItems[indexPath.row]) 
+        return cell
     }
     
 }

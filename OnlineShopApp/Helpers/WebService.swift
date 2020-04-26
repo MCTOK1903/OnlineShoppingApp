@@ -111,7 +111,7 @@ func downloadImages(imageURL: [String], completion: @escaping (_ images: [UIImag
     }
 }
 
-//MARK: -Save category func
+//MARK: - Save category func
 
 func saveCategoryToFirebase(_ category:Category){
     let id = UUID().uuidString
