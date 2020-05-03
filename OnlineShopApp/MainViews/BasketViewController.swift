@@ -108,6 +108,19 @@ class BasketViewController: UIViewController {
         
     }
     
+    //MARK: - removeItemFromBasket
+    
+    private func removeItemFromBasket(itemId:String){
+        
+        for i in  0..<basket!.itemIds.count {
+            
+            if itemId == basket!.itemIds[i] {
+                basket!.itemIds.remove(at: i)
+                return
+            }
+        }
+    }
+    
     
 }
 
@@ -126,4 +139,36 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    //MARK: - UITableview Delegate
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let itemToDelete = allItems[indexPath.row]
+            
+            allItems.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+            removeItemFromBasket(itemId: itemToDelete.id)
+            
+            updateBasketInFirestore(basket!, withValues: [kITEMIDS: basket?.itemIds]) { (err) in
+                
+                if err != nil {
+                    print("error updating basket", err?.localizedDescription)
+                }
+                
+                self.getBasketItem()
+            }
+        }
+    }
+    
+    
 }
+
+
+
+
+    
