@@ -10,7 +10,7 @@ import UIKit
 import JGProgressHUD
 
 class BasketViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var basketTotalLabel: UILabel!
@@ -30,7 +30,7 @@ class BasketViewController: UIViewController {
     //MARK: - View Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.tableFooterView = footerView;
     }
     
@@ -81,6 +81,9 @@ class BasketViewController: UIViewController {
             totalItemsCount.text = "\(allItems.count)"
             basketTotalLabel.text = BasketTotalPrice()
         }
+        
+        checkoutButtonStatusUpdate()
+        
     }
     
     
@@ -97,7 +100,13 @@ class BasketViewController: UIViewController {
         
     }
     
+    //MARK: - Control checkoutButton
     
+    private func checkoutButtonStatusUpdate(){
+        
+        checkOutButtonOutlet.isEnabled = allItems.count > 0
+        
+    }
     
     
 }
